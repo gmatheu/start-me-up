@@ -1,0 +1,9 @@
+[submodule "modules/gnome-terminal-colors-solarized"]
+	path = modules/gnome-terminal-colors-solarized
+	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "modules/dircolors-solarized"]
+	path = modules/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "modules/guake-colors-solarized"]
+	path = modules/guake-colors-solarized
+	url = https://github.com/coolwanglu/guake-colors-solarized.git
