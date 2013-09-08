@@ -7,12 +7,12 @@ sudo apt-get -y install zsh vim aptitude git guake curl openjdk-7-jre-headless m
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 # Plugins plugins=(git git-extras rake autojump rvm vagrant rails history sublime bundler history-substring-search zsh-syntax-highlighting)
 mkdir --parents ~/.oh-my-zsh/custom/plugins
-cd ~/.oh-my-zsh/custom/plugins &&
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+cp functions.zsh ~/.oh-my-zsh/custom
+cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
 sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history sublime bundler zsh-syntax-highlighting history-substring-search\)/g~/.zshrc
 sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
 sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
-# Functions
+
 # Highligting
 
 # Git

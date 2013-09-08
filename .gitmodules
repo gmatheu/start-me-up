@@ -7,3 +7,6 @@
 [submodule "modules/guake-colors-solarized"]
 	path = modules/guake-colors-solarized
 	url = https://github.com/coolwanglu/guake-colors-solarized.git
+[submodule "modules/zsh-syntax-highlighting"]
+	path = modules/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
