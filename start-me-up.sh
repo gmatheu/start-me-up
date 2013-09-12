@@ -1,6 +1,6 @@
 #! /bin/bash
 
-$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-jre-headless maven autojump geany pidgin tree htop ack xclip vlc"
+$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack xclip vlc"
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
 
@@ -45,8 +45,9 @@ sudo dpkg --install sublime-text_build-3047_amd64.deb
 rm sublime-text_build-3047_amd64.deb
 
 # Rvm/Ruby
-curl -L https://get.rvm.io | bash -s stable --ruby
+curl -L https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 # source ~/.profile into .bashrc
+gem install pry
 
 # Node
 sudo apt-get -y python-software-properties python g++ make
@@ -122,3 +123,56 @@ eval `dircolors ~/.dircolors` &&
 sh modules/gnome-terminal-colors-solarized/set_dark.sh &&
 sh modules/guake-colors-solarized/set_dark.sh
 
+
+#Eclipse
+# http://akovid.blogspot.com.br/2012/08/installing-eclipse-juno-42-in-ubuntu.html
+if ! (which eclipse > /dev/null)
+  then
+  if [ -f eclipse ]; then
+    sudo tar xf eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz -C /opt &&
+    sudo mv /opt/eclipse /opt/eclipse-kepler &&
+    sudo cat > /usr/share/applications/eclipse-kepler.desktop <<EOF
+[Desktop Entry]
+Name=Eclipse Kepler
+Type=Application
+Exec=/opt/eclipse-kepler/eclipse
+Terminal=false
+Icon=/opt/eclipse-kepler/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE
+Name[en]=eclipse
+EOF
+    sudo ln -s /opt/eclipse-kepler/eclipse /usr/bin/eclipse-kepler
+    sudo ln -s /usr/bin/eclipse-kepler /usr/bin/eclipse
+  else 
+    echo "eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz should be on this folder"
+  fi
+fi
+
+
+#IntelliJ Idea
+if ! (which idea > /dev/null)
+  then
+  if [ -f ideaIC-12.1.4.tar.gz ]; then
+    IDEA_PREFIX="idea-IC-12"
+    tar xf ideaIC-12.1.4.tar.gz &&
+    find . -name "$IDEA_PREFIX*" -type d -exec mv {} $IDEA_PREFIX \; &&
+    sudo mv $IDEA_PREFIX /opt &&
+    sudo cat > /usr/share/applications/idea.desktop <<EOF
+[Desktop Entry]
+Name=IntelliJ Idea 12
+Type=Application
+Exec=/opt/idea-IC-12/bin/idea.sh
+Terminal=false
+Icon=/opt/idea-IC-12/bin/idea.png
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE
+Name[en]=Idea
+EOF
+    sudo ln -s /opt/$IDEA_PREFIX/bin/idea.sh /usr/bin/idea
+  else 
+    echo "ideaIC-12.1.4.tar.gz should be on this folder"
+  fi
+fi
