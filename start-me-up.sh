@@ -1,6 +1,6 @@
 #! /bin/bash
 
-$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack xclip vlc"
+$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack xclip vlc meld"
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
 
@@ -40,9 +40,7 @@ sudo dpkg --install vagrant_1.3.1_i686.deb
 rm vagrant_1.3.1_i686.deb
 
 # Sublime
-wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3047_amd64.deb
-sudo dpkg --install sublime-text_build-3047_amd64.deb
-rm sublime-text_build-3047_amd64.deb
+./sublime.sh
 
 # Rvm/Ruby
 curl -L https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
@@ -175,4 +173,11 @@ EOF
   else 
     echo "ideaIC-12.1.4.tar.gz should be on this folder"
   fi
+fi
+
+# Hub
+if ! (which hub > /dev/null); then
+  sudo curl http://hub.github.com/standalone -sLo /bin/hub &&
+  sudo chmod +x /bin/hub &&
+  curl https://raw.github.com/github/hub/master/etc/hub.zsh_completion -o ~/.oh-my-zsh/custom/hub.zsh
 fi
