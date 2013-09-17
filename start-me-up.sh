@@ -6,11 +6,11 @@ sudo apt-get -y install $PACKAGES
 
 # Zsh 
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-# Plugins plugins=(git git-extras rake autojump rvm vagrant rails history sublime bundler history-substring-search zsh-syntax-highlighting)
+# Plugins plugins=(git git-extras rake autojump rvm vagrant rails history sublime history-substring-search zsh-syntax-highlighting)
 mkdir --parents ~/.oh-my-zsh/custom/plugins
 cp functions.zsh ~/.oh-my-zsh/custom
 cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
-sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history sublime bundler zsh-syntax-highlighting history-substring-search debian tmux\)/g~/.zshrc
+sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history sublime zsh-syntax-highlighting history-substring-search debian tmux\)/g~/.zshrc
 sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
 sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
 
@@ -45,7 +45,7 @@ rm vagrant_1.3.1_i686.deb
 # Rvm/Ruby
 curl -L https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 # source ~/.profile into .bashrc
-gem install pry
+gem install pry guard
 
 # Node
 sudo apt-get -y python-software-properties python g++ make
