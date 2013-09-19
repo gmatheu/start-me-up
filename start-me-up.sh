@@ -1,5 +1,7 @@
 #! /bin/bash
 
+STU_HOME=`pwd`
+
 $PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack xclip vlc meld"
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
@@ -8,8 +10,8 @@ sudo apt-get -y install $PACKAGES
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 # Plugins plugins=(git git-extras rake autojump rvm vagrant rails history sublime history-substring-search zsh-syntax-highlighting)
 mkdir --parents ~/.oh-my-zsh/custom/plugins
-ln -s functions.zsh ~/.oh-my-zsh/custom/functions.zsh
-cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins
+ln -s $STU_HOME/functions.zsh $ZSH_CUSTOM/functions.zsh
+cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history zsh-syntax-highlighting history-substring-search debian tmux\)/g~/.zshrc
 sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
 sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
