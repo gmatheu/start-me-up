@@ -36,3 +36,18 @@ alias xoc='xclip -o -selection clipboard'
 alias xos='xclip -o -selection secondary'
 
 alias save='echo "$@" >> ~/.saved'
+
+# Tmux
+alias txc='tmux show-buffer | xc' #Put Tmux buffer in the clipboard
+
+#Sublime plugin fix 
+if [[ $('uname') == 'Linux' ]]; then
+        if [ -f '/usr/bin/subl' ]; then
+                st_run() { nohup /usr/bin/subl $@ > /dev/null & }
+        else
+                st_run() { nohup /usr/bin/subl $@ > /dev/null & }
+        fi
+        alias st=st_run
+fi
+
+alias stt='st .'
