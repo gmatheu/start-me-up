@@ -2,7 +2,7 @@
 
 STU_HOME=`pwd`
 
-$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack xclip vlc meld"
+$PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack-grep xclip vlc meld"
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
 

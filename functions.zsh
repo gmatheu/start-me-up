@@ -27,6 +27,8 @@ function grep-rails-routes()
 alias ag="grep-aliases"
 alias rrg="grep-rails-routes"
 alias rt="rake -T"
+alias psg="ps aux | grep $@"
+alias ack="ack-grep"
 
 alias xc='xclip -selection clipboard'
 alias xp='xclip'
