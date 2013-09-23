@@ -1,15 +1,26 @@
-# git submodule add https://github.com/bgreenlee/sublime-github modules/sublime-text-3/Github
-# git submodule add https://github.com/alienhard/SublimeAllAutocomplete modules/sublime-text-3/AllAutocomplete
-# https://github.com/waynemoore/sublime-gherkin-formatter.git
 
-wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3047_amd64.deb &&
-sudo dpkg --install sublime-text_build-3047_amd64.deb &&
-rm sublime-text_build-3047_amd64.deb
+sudo add-apt-repository -y ppa:webupd8team/sublime-text-3 &&
+sudo apt-get update &&
+sudo apt-get install sublime-text-installer
 
 PKG_DIR="sublime-packages" 
 mkdir $PKG_DIR
 cd $PKG_DIR &&
 wget "https://sublime.wbond.net/Package%20Control.sublime-package" &&
 cp $PKG_DIR/* "~/.config/sublime-text-3/Installed Packages" &&
-rm $PKG_DIR 
-cp sublime-settings/* "~/.config/sublime-text-3/Packages/User"
+rm $PKG_DIR
+CONF_DIR="~/.config/sublime-text-3/Packages/User"
+cp sublime-settings/* $CONF_DIR 
+
+cat > $CONF_DIR/SendToPasteBin.sublime-setings <<EOF
+{
+	"api_dev_key":  "$PASTE_BIN_API_KEY",
+	"api_user_key": "$EMAIL",
+
+	// 0 = Public, 1 = Unlisted, 2 = Private
+	"paste_privacy": 1,
+
+	// N = Never, 10M = 10 Minutes, 1H = 1 Hour, 1D = 1 Day, 1W = 1 Week, 2W = 2 Weeks, 1M = 1 Month
+	"paste_expire_date": "1D"
+}
+EOF

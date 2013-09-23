@@ -1,0 +1,19 @@
+{
+  "installed_packages": [
+    "All Autocomplete",
+    "Behat Features",
+    "GitGutter",
+    "JSHint Gutter",
+    "JSONLint",
+    "Pretty JSON",
+    "RSpec",
+    "RSpec (snippets and syntax)",
+    "rspec-snippets",
+    "Sass",
+    "SendToPasteBin",
+    "SideBarEnhancements",
+    "SublimeGit",
+    "Surround",
+    "Tag"
+  ]
+}

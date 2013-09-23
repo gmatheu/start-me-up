@@ -1,6 +1,11 @@
 #! /bin/bash
 
 STU_HOME=`pwd`
+if [ ! -f $STU_HOME/secrets.sh ]; then
+  echo "No secrets file defined!"
+  exit 1
+fi
+source $STU_HOME/secrets.sh
 
 $PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack-grep xclip vlc meld"
 sudo apt-get update > /dev/null
@@ -20,8 +25,7 @@ sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
 # Highligting
 
 # Git
-EMAIL="gonzalommj@gmail.com"
-git config --global user.name "Gonzalo Matheu"
+git config --global user.name $NAME 
 git config --global user.email $EMAIL
 git config --global core.pager ''
 git config --global color.ui true
@@ -43,7 +47,7 @@ sudo dpkg --install vagrant_1.3.1_i686.deb
 rm vagrant_1.3.1_i686.deb
 
 # Sublime
-./sublime.sh
+source $STU_HOME/sublime.sh
 
 # Rvm/Ruby
 curl -L https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
