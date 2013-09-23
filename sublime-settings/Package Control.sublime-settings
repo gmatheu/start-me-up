@@ -1,19 +1,29 @@
 {
-  "installed_packages": [
-    "All Autocomplete",
-    "Behat Features",
-    "GitGutter",
-    "JSHint Gutter",
-    "JSONLint",
-    "Pretty JSON",
-    "RSpec",
-    "RSpec (snippets and syntax)",
-    "rspec-snippets",
-    "Sass",
-    "SendToPasteBin",
-    "SideBarEnhancements",
-    "SublimeGit",
-    "Surround",
-    "Tag"
-  ]
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Behat Features",
+		"Enhanced Clojure",
+		"Gherkin (Cucumber) Formatter",
+		"GitGutter",
+		"Javatar",
+		"JSHint Gutter",
+		"JSONLint",
+		"MaxPane",
+		"Origami",
+		"Pretty JSON",
+		"RSpec",
+		"RSpec (snippets and syntax)",
+		"rspec-snippets",
+		"Ruby on Rails snippets",
+		"Sass",
+		"ScalaFormat",
+		"ScalaWorksheet",
+		"SendToPasteBin",
+		"SideBarEnhancements",
+		"SublimeGit",
+		"SublimeREPL",
+		"Surround",
+		"Tag"
+	]
 }
