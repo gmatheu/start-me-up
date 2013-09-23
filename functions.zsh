@@ -53,3 +53,5 @@ if [[ $('uname') == 'Linux' ]]; then
 fi
 
 alias stt='st .'
+
+unalias ag
