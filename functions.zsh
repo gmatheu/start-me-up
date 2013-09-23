@@ -24,7 +24,7 @@ function grep-rails-routes()
  	rake routes | grep $1
  }
 
-alias ag="grep-aliases"
+alias ga="grep-aliases"
 alias rrg="grep-rails-routes"
 alias rt="rake -T"
 alias psg="ps aux | grep $@"

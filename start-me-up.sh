@@ -185,3 +185,12 @@ if ! (which hub > /dev/null); then
   sudo chmod +x /bin/hub &&
   curl https://raw.github.com/github/hub/master/etc/hub.zsh_completion -o ~/.oh-my-zsh/custom/hub.zsh
 fi
+
+# The Silver Search
+if ! (which ag > /dev/null); then
+  sudo apt-get -y install software-properties-common &&
+  sudo apt-add-repository -y ppa:mizuno-as/silversearcher-ag &&
+  sudo apt-get update &&
+  sudo apt-get -y install silversearcher-ag
+fi
+
