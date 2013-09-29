@@ -22,7 +22,8 @@ echo "DEBIAN_PREVENT_KEYBOARD_CHANGES=yes" >> ~/.zshenv
 sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
 sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
 
-# Highligting
+# Tmux conf
+ln -s tmux.conf ~/.tmux.conf
 
 # Git
 git config --global user.name $NAME 
