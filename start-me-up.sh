@@ -16,6 +16,7 @@ wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master
 # Plugins 
 mkdir --parents ~/.oh-my-zsh/custom/plugins
 ln -s $STU_HOME/functions.zsh $ZSH_CUSTOM/functions.zsh
+ln -s $STU_HOME/extra-init.zsh $ZSH_CUSTOM/extra-init.zsh
 cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history zsh-syntax-highlighting history-substring-search debian tmux\)/g~/.zshrc
 echo "DEBIAN_PREVENT_KEYBOARD_CHANGES=yes" >> ~/.zshenv
@@ -23,7 +24,7 @@ sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
 sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
 
 # Tmux conf
-ln -s tmux.conf ~/.tmux.conf
+ln -s $STU_HOME/tmux.conf ~/.tmux.conf
 
 # Git
 git config --global user.name $NAME 
@@ -125,7 +126,7 @@ echo "Nautilus Nav bar"
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 
 echo "Solarized"
-cp modules/dircolors.ansi-dark ~/.dircolors &&
+ln -s $STU_HOME/modules/dircolors.ansi-dark ~/.dircolors &&
 eval `dircolors ~/.dircolors` &&
 sh modules/gnome-terminal-colors-solarized/set_dark.sh &&
 sh modules/guake-colors-solarized/set_dark.sh
