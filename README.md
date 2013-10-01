@@ -1,4 +1,7 @@
 start-me-up
 ===========
 
-Scripts setting up Ubuntu on MacBookPro 8.1
+Some scripts to set up basic applictions and preferences.
+
+
+`git clone git@github.com:gmatheu/start-me-up.git ~/.start-me-up`
