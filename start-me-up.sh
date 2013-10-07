@@ -11,17 +11,7 @@ $PACKAGES="zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openj
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
 
-# Zsh 
-wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-# Plugins 
-mkdir --parents ~/.oh-my-zsh/custom/plugins
-ln -s $STU_HOME/functions.zsh $ZSH_CUSTOM/functions.zsh
-ln -s $STU_HOME/extra-init.zsh $ZSH_CUSTOM/extra-init.zsh
-cp -r ./modules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-sed -i -e /plugins=.*/plugins=\(git git-extras rake autojump rvm vagrant rails history zsh-syntax-highlighting history-substring-search debian tmux\)/g~/.zshrc
-echo "DEBIAN_PREVENT_KEYBOARD_CHANGES=yes" >> ~/.zshenv
-sed -i -e's/# DISABLE_CORRECTION/DISABLE_CORRECTION/g' ~/.zshrc
-sed -i -e's/ZSH_THEME=\".*\"/ZSH_THEME=\"blinks\"/g' ~/.zshrc
+source $STU_HOME/oh-my-zsh.zsh
 
 # Tmux conf
 ln -s $STU_HOME/tmux.conf ~/.tmux.conf
