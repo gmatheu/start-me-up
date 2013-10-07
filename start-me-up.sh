@@ -152,3 +152,5 @@ if ! (which ag > /dev/null); then
   sudo apt-get -y install silversearcher-ag
 fi
 
+source $STU_HOME/netflix.sh
+source $STU_HOME/puppet.sh
