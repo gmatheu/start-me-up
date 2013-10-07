@@ -33,10 +33,7 @@ sudo apt-get update > /dev/null
 sudo apt-get -y install virtualbox-4.2
 sudo apt-get -y install dkms
 
-# Vagrant
-wget http://files.vagrantup.com/packages/b12c7e8814171c1295ef82416ffe51e8a168a244/vagrant_1.3.1_i686.deb
-sudo dpkg --install vagrant_1.3.1_i686.deb
-rm vagrant_1.3.1_i686.deb
+source $STU_HOME/vagrant.sh
 
 # Sublime
 source $STU_HOME/sublime.sh
