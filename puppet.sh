@@ -5,4 +5,4 @@ sudo dpkg -i puppetlabs-release-raring &&
 rm puppetlabs-release-raring
 
 sudo apt-get update
-sudo aptitudo -y install puppet-common puppet
+sudo aptitude -y install puppet-common puppet
