@@ -83,6 +83,15 @@ eval `dircolors ~/.dircolors` &&
 sh modules/gnome-terminal-colors-solarized/set_dark.sh &&
 sh modules/guake-colors-solarized/set_dark.sh
 
+# Natural Scrolling
+sudo add-apt-repository -y ppa:zedtux/naturalscrolling &&                                                                                                        !555
+sudo apt-get update &&
+sudo apt-get install -y naturalscrolling
+
+# Caffeine
+sudo apt-add-repository ppa:caffeine-developers/ppa
+sudo apt-get update &&
+sudo apt-get install -y caffeine 
 
 #Eclipse
 # http://akovid.blogspot.com.br/2012/08/installing-eclipse-juno-42-in-ubuntu.html
