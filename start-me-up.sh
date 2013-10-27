@@ -25,14 +25,7 @@ git config --global color.ui true
 echo "Generating SSH keys"
 ssh-keygen -t rsa -C $EMAIL 
 
-
-# VBox
-wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-sudo apt-get update > /dev/null
-sudo apt-get -y install virtualbox-4.2
-sudo apt-get -y install dkms
-
+source $STU_HOME/virtualbox.sh
 source $STU_HOME/vagrant.sh
 
 # Sublime
