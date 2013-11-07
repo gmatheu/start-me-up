@@ -86,32 +86,7 @@ sudo apt-add-repository ppa:caffeine-developers/ppa
 sudo apt-get update &&
 sudo apt-get install -y caffeine 
 
-#Eclipse
-# http://akovid.blogspot.com.br/2012/08/installing-eclipse-juno-42-in-ubuntu.html
-if ! (which eclipse > /dev/null)
-  then
-  if [ -f eclipse ]; then
-    sudo tar xf eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz -C /opt &&
-    sudo mv /opt/eclipse /opt/eclipse-kepler &&
-    sudo cat > /usr/share/applications/eclipse-kepler.desktop <<EOF
-[Desktop Entry]
-Name=Eclipse Kepler
-Type=Application
-Exec=/opt/eclipse-kepler/eclipse
-Terminal=false
-Icon=/opt/eclipse-kepler/icon.xpm
-Comment=Integrated Development Environment
-NoDisplay=false
-Categories=Development;IDE
-Name[en]=eclipse
-EOF
-    sudo ln -s /opt/eclipse-kepler/eclipse /usr/bin/eclipse-kepler
-    sudo ln -s /usr/bin/eclipse-kepler /usr/bin/eclipse
-  else 
-    echo "eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz should be on this folder"
-  fi
-fi
-
+source $STU_HOME/eclipse.sh
 
 #IntelliJ Idea
 if ! (which idea > /dev/null)
