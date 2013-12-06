@@ -4,6 +4,7 @@ alias glo='git log --oneline --max-count=30'
 compdef _git glo=git-log
 alias glof='git log --pretty=format:"%C(yellow)%h%Creset %s %Cred%an%Creset %Cgreen%ad" --max-count=20  --date=relative'
 compdef _git glof=git-log
+alias gstl='git stash && git pull --rebase'
 
 # Start an HTTP server from a directory, optionally specifying the port
  function server() {
