@@ -7,6 +7,9 @@ if [ ! -f $STU_HOME/secrets.sh ]; then
 fi
 source $STU_HOME/secrets.sh
 
+echo "Adding ppa repositories"
+sudo add-apt-repository -y ppa:git-core/ppa
+
 $PACKAGES="subversion zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack-grep xclip vlc meld"
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
