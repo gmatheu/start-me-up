@@ -58,3 +58,8 @@ fi
 alias stt='st .'
 
 unalias ag
+
+if (which docker > /dev/null)
+then
+  alias docker='sudo docker'
+fi
