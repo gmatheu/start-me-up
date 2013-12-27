@@ -1,5 +1,8 @@
 #! /usr/bin/zsh
 
+alias zsh_reload='source ~/.zshrc'
+alias zshr='zsh_reload'
+
 alias glo='git log --oneline --max-count=30'
 compdef _git glo=git-log
 alias glof='git log --pretty=format:"%C(yellow)%h%Creset %s %Cred%an%Creset %Cgreen%ad" --max-count=20  --date=relative'
@@ -62,4 +65,10 @@ unalias ag
 if (which docker > /dev/null)
 then
   alias docker='sudo docker'
+fi
+
+if (which memcached > /dev/null)
+then
+  alias clear_memcached='echo "flush_all" | nc localhost 11211'
+  alias cmc='clear_memcached'
 fi
