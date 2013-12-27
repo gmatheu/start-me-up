@@ -70,5 +70,6 @@ fi
 if (which memcached > /dev/null)
 then
   alias clear_memcached='echo "flush_all" | nc localhost 11211'
-  alias cmc='clear_memcached'
+  alias mccl='clear_memcached'
+  alias mcc='telnet localhost 11211'
 fi
