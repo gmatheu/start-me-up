@@ -14,7 +14,7 @@ fi
 echo "Creating shortcuts"
 sudo bash -c "cat > $DIR/burp <<EOF
 #! /bin/bash
-java -jar $EXEC &
+java -Dsun.security.ssl.allowUnsafeRenegotiation=true -jar $EXEC &
 EOF"
 sudo chmod +x $DIR/burp
 sudo bash -c 'cat > /usr/share/applications/burp.desktop <<EOF
