@@ -3,9 +3,9 @@
 alias zsh_reload='source ~/.zshrc'
 alias zshr='zsh_reload'
 
-alias glo='git log --oneline --max-count=30'
+alias glo='git log --oneline --max-count=20 --reverse'
 compdef _git glo=git-log
-alias glof='git log --pretty=format:"%C(yellow)%h%Creset %s %Cred%an%Creset %Cgreen%ad" --max-count=20  --date=relative'
+alias glof='git log --pretty=format:"%C(yellow)%h%Creset %s %Cred%an%Creset %Cgreen%ad" --max-count=15 --date=relative --reverse'
 compdef _git glof=git-log
 alias gstl='git stash && git pull --rebase'
 
@@ -73,3 +73,5 @@ then
   alias mccl='clear_memcached'
   alias mcc='telnet localhost 11211'
 fi
+
+alias stu="cd ~/.start-me-up"
