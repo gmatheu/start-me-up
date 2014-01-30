@@ -14,6 +14,7 @@ $PACKAGES="subversion zsh tmux aptitude git guake curl openjdk-7-source openjdk-
 sudo apt-get update > /dev/null
 sudo apt-get -y install $PACKAGES
 
+source $STU_HOME/java.zsh
 source $STU_HOME/oh-my-zsh.zsh
 
 # Tmux conf
