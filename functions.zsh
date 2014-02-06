@@ -75,3 +75,4 @@ then
 fi
 
 alias stu="cd ~/.start-me-up"
+alias o="xdg-open"
