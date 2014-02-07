@@ -76,3 +76,17 @@ fi
 
 alias stu="cd ~/.start-me-up"
 alias o="xdg-open"
+
+function notify() {
+  if which notify-send &> /dev/null; then
+    local name=${1}
+    if test $? -eq 0; then
+      local notification="Succeeded"
+      notify-send -t 1000 -i dialog-ok "${name} ${notification}"
+    else
+      local notification="Failed"
+      notify-send -t 3000 -i dialog-error "${name} ${notification}"
+    fi
+  fi
+}
+
