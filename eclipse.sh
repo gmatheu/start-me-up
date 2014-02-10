@@ -5,7 +5,7 @@ if ! (which eclipse > /dev/null)
   then
 
 	if [ $(uname -m) == 'x86_64' ]; then
-		eclipse_file="eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz"
+		eclipse_file="eclipse-jee-kepler-SR1-linux-gtk-x86_64.tar.gz"
 	else
 		eclipse_file="eclipse-jee-kepler-SR1-linux-gtk.tar.gz"
 	fi
@@ -17,7 +17,7 @@ if ! (which eclipse > /dev/null)
 [Desktop Entry]
 Name=Eclipse Kepler
 Type=Application
-Exec=/opt/eclipse-kepler/eclipse
+Exec=env UBUNTU_MENUPROXY=0 /opt/eclipse-kepler/eclipse
 Terminal=false
 Icon=/opt/eclipse-kepler/icon.xpm
 Comment=Integrated Development Environment
