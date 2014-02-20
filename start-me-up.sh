@@ -25,6 +25,8 @@ git config --global user.name $NAME
 git config --global user.email $EMAIL
 git config --global core.pager ''
 git config --global color.ui true
+git config --global merge.tool meld
+git config --global diff.tool meld
 
 echo "Generating SSH keys"
 ssh-keygen -t rsa -C $EMAIL 
