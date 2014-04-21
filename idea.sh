@@ -36,7 +36,7 @@ function install-idea {
   fi
 }
 
-install-idea "12" "13.1.4" "Community" "IC" "ic"
+install-idea "12" "12.1.4" "Community" "IC" "ic"
 install-idea "12" "12.1.6" "Ultimate" "IU" "iu"
-install-idea "13" "13" "Community" "IC" "ic"
-install-idea "13" "13" "Ultimate" "IU" "iu"
+install-idea "13" "13.1.1" "Community" "IC" "ic"
+install-idea "13" "13.1.1" "Ultimate" "IU" "iu"
