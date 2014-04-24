@@ -1,10 +1,8 @@
 #! /bin/sh
-# apt-get update
-# apt-get -y upgrade
+apt-get update
+apt-get -y upgrade
 apt-get install -y curl
-sh -c "`curl https://babushka.me/up`"
-# mkdir --parents ~/.babushka
-# ln -s ~/.stu/babushka-deps ~/.babushka/deps
+sudo sh -c "`curl https://babushka.me/up/master`"
 
 echo 
 echo 'Starting up...'
