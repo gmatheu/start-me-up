@@ -5,13 +5,20 @@ tree htop ack-grep xclip vlc meld
 |.split
 
 dep 'start-me-up' do
-  requires 'ppa'.with(spec: 'ppa:git-core/ppa')
   PACKAGES.each  { |p| requires "#{p}.lib"}
+  requires 'git.managed'
   requires 'zsh shell'
   requires 'rvm'
+  requires 'copy'
 end
 
 PACKAGES.each { |p| dep "#{p}.lib" }
+
+dep 'git.managed' do
+  requires 'ppa'.with('ppa:git-core/ppa')
+  installs 'git'
+  provides 'git >= 1.9.2'
+end
 
 dep 'zsh shell' do
   requires 'zsh.lib'
