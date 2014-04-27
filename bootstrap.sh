@@ -20,4 +20,4 @@ sudo sh -c "`curl https://babushka.me/up/master`"
 
 echo 
 echo 'Starting up...'
-cd $STU; babushka start-me-up
+cd $STU; babushka start-me-up home="$STU"

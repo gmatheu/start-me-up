@@ -1,0 +1,13 @@
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="avit"
+DISABLE_CORRECTION="true"
+plugins=(docker gradle lein bundler git git-extras rake autojump rvm vagrant rails history debian zsh-syntax-highlighting history-substring-search)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+source ~/.profile
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

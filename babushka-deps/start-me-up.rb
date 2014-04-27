@@ -4,15 +4,16 @@ openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin
 tree htop ack-grep xclip vlc meld
 |.split.each { |p| dep "#{p}.lib" }
 
-
 BINARIES = %Q|
 |.split.each { |p| dep "#{p}.bin" }
 
 
-dep 'start-me-up' do
+dep 'start-me-up', :home do
+  home.default! '~/.start-me-up'
+
   PACKAGES.each  { |p| requires "#{p}.lib"}
   requires 'git.managed'
-  requires 'shell'
+  requires 'shell'.with(home: home)
   requires 'rvm'
   requires 'copy'
 end
