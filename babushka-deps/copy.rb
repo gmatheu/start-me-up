@@ -7,7 +7,7 @@ dep 'copy' do
   Encoding=UTF-8
   Type=Application
   Name=Copy
-  Exec=/usr/bin/copy
+  Exec=/usr/local/bin/copy
   Comment=Sync your files across computers and to the web
   Categories=Network;FileTransfer;
   Terminal=false
@@ -22,7 +22,7 @@ dep 'copy' do
   meet do
     shell "curl #{@download_url} -o #{@temp_file}" unless @temp_file.p.exist?
     sudo "tar -xf #{@temp_file} -C /opt"
-    sudo 'ln -s /opt/copy/x86_64/CopyAgent /usr/bin/copy'
+    sudo 'ln -s /opt/copy/x86_64/CopyAgent /usr/local/bin/copy'
 
     sudo("cat > /usr/share/applications/copy.desktop", :input => @desktop_file_content)
   end
