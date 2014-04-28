@@ -16,7 +16,7 @@ fi
 apt-get update
 apt-get -y upgrade
 apt-get install -y curl
-sudo sh -c "`curl https://babushka.me/up/master`"
+sudo sh -c "`curl https://babushka.me/up/master`" </dev/null
 
 echo 
 echo 'Starting up...'
