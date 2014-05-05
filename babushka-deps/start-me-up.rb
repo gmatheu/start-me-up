@@ -1,5 +1,5 @@
 PACKAGES = %Q|
-subversion aptitude git tig curl openjdk-7-source
+subversion aptitude tig curl openjdk-7-source
 openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin
 tree htop ack-grep xclip vlc meld
 |.split.each { |p| dep "#{p}.lib" }
@@ -12,18 +12,12 @@ dep 'start-me-up', :home do
   home.default! '~/.start-me-up'
 
   PACKAGES.each  { |p| requires "#{p}.lib"}
-  requires 'git.managed'
   ['shell', 'tmux'].each do |d|
     requires d.with(home: home)
   end
   requires 'rvm'
+  requires 'git'
   requires 'copy'
-end
-
-dep 'git.managed' do
-  requires 'ppa'.with('ppa:git-core/ppa')
-  installs 'git'
-  provides 'git >= 1.9.2'
 end
 
 dep 'rvm' do
