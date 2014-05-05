@@ -1,5 +1,5 @@
 dep 'git' do
-  requires 'git.managed', 'git settings'
+  requires 'git.managed', 'git settings', 'ssh key'
 end
 
 dep 'git.managed' do
@@ -26,5 +26,8 @@ dep 'git config', :key, :value do
 end
 
 dep 'ssh key', :email do
-  meet { "ssh-keygen -t rsa -C #{email}" }
+  email.default!(ENV['EMAIL'] || 'me@email.com')
+  @file = File.expand_path '~/.ssh/id_rsa'
+  met? { File.exist? @file }
+  meet { shell "ssh-keygen -t rsa -f #{@file} -C #{email}" }
 end
