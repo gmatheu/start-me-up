@@ -8,10 +8,10 @@ dep 'shell', :home do
     ['zshrc', 'zshenv'].map { |d|
       'dotfile.symlink'.with(dotfile: d, home: home / 'dotfiles')
     },
+    'oh-my-zsh',
     ['functions', 'extra-init'].map { |f|
       'oh-my-zsh custom.symlink'.with(source_dir: home / 'custom-files', custom_file: f)
     },
-    'oh-my-zsh',
     'zsh-syntax-highlighting'
   ].flatten
 end
@@ -19,18 +19,23 @@ end
 dep 'zsh-syntax-highlighting' do
   requires 'oh-my-zsh'
   @repo = 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
-  @path = "#{OH_MY_ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
-  met? { Babushka::GitRepo.repo_for(@path).exists? }
+  @path = File.expand_path "#{OH_MY_ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
+  met? {
+    repository = Babushka::GitRepo.repo_for(@path)
+    repository && repository.exists?
+  }
   meet { git @repo, :to => @path }
 end
 
 dep 'oh-my-zsh' do
-  @home = OH_MY_ZSH_HOME
-  met? { @home.p.exist? }
+  requires 'zsh shell'
+  @home = File.expand_path OH_MY_ZSH_HOME
+  met? { File.exist? @home }
   meet { shell `curl -L http://install.ohmyz.sh | sh` }
 end
 
 dep 'oh-my-zsh custom.symlink', :custom_file, :source_dir do
+  requires 'oh-my-zsh'
   source File.expand_path "#{source_dir}/#{custom_file}.zsh"
   target File.expand_path "#{OH_MY_ZSH_CUSTOM}/#{custom_file}.zsh"
 end
