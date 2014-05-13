@@ -5,10 +5,10 @@ dep 'shell', :home do
   requires [
     'zsh.bin',
     'zsh shell',
+    'oh-my-zsh',
     ['zshrc', 'zshenv'].map { |d|
       'dotfile.symlink'.with(dotfile: d, home: home / 'dotfiles')
     },
-    'oh-my-zsh',
     ['functions', 'extra-init'].map { |f|
       'oh-my-zsh custom.symlink'.with(source_dir: home / 'custom-files', custom_file: f)
     },
