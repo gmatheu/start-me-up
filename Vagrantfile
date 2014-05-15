@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = '2'
 
 $script = <<SCRIPT
-sudo su vagrant -c "sudo /home/vagrant/.start-me-up/bootstrap.sh"
+sudo su vagrant -c "/home/vagrant/.start-me-up/bootstrap.sh"
 SCRIPT
 
 $desktop_script = <<SCRIPT
