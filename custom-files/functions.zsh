@@ -74,7 +74,6 @@ then
   alias mcc='telnet localhost 11211'
 fi
 
-alias stu="cd ~/.start-me-up"
 alias o="xdg-open"
 
 function notify() {
@@ -91,3 +90,11 @@ function notify() {
   fi
 }
 alias n=notify
+
+STU_HOME="`cd ~/.start-me-up; pwd`"
+alias stu="cd $STU_HOME"
+function start-me-update(){
+	echo "Updating start-me-up..."
+	cd $STU_HOME; git pull origin master; \
+	babushka start-me-up home="$STU_HOME"
+}
