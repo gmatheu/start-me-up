@@ -14,7 +14,8 @@ end
 dep 'oracle java.managed' do
   requires 'ppa'.with('ppa:webupd8team/java')
   installs []
-  # installs 'oracle-java7-installer', 'oracle-java8-installer'
+  log 'You can install: oracle-java7-installer'
+  log 'You can install: oracle-java8-installer'
 end
 
 JAVA_PACKAGES.each{ |p| dep p }
