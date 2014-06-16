@@ -1,5 +1,9 @@
-JAVA_PACKAGES = %Q|openjdk-7-source openjdk-7-doc
-openjdk-7-jdk maven
+JAVA_PACKAGES = %Q|
+openjdk-7-source
+openjdk-7-doc
+openjdk-7-jdk
+maven
+gradle
 |.split.map{ |p| "#{p}.lib" }
 
 dep 'java' do
@@ -9,6 +13,7 @@ end
 
 dep 'oracle java.managed' do
   requires 'ppa'.with('ppa:webupd8team/java')
+  installs []
   # installs 'oracle-java7-installer', 'oracle-java8-installer'
 end
 
