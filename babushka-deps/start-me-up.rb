@@ -14,7 +14,8 @@ dep 'start-me-up', :home do
     requires d.with(home: home)
   end
   requires 'ruby', 'java', 'git'
-  requires 'copy', 'heroku'
+  requires 'cloud-storage', 'heroku'
+  requires 'docker'
   requires 'atom', 'sublime'
   requires 'ant-downloader'
 end
