@@ -14,7 +14,7 @@ dep 'rvm' do
   met? { which('rvm') }
 
   meet {
-    shell 'bash -c "`curl -L https://get.rvm.io`"'
+    shell 'bash -c "`curl -sL https://get.rvm.io`"'
     shell 'bash -c "source ~/.rvm/scripts/rvm; rvm notes"'
     # profile = Dir["~/.bash_profile", "~/.bashrc"].first || "~/.bash_profile"
     # shell "echo 'if [[ -s \"$HOME/.rvm/scripts/rvm\" ]] ; then source \"$HOME/.rvm/scripts/rvm\" ; fi' >> #{profile}"
