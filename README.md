@@ -14,6 +14,6 @@ or
 
 Just run:
 
-`curl -L https://raw.githubusercontent.com/gmatheu/start-me-up/master/bootstrap.sh | sh`
+`curl -sL https://raw.githubusercontent.com/gmatheu/start-me-up/master/bootstrap.sh | sh`
 
 

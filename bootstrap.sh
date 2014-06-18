@@ -17,7 +17,7 @@ then
   }
 fi
 
-sudo sh -c "`curl https://babushka.me/up/master`" </dev/null
+sudo sh -c "`curl -s https://babushka.me/up/master`" </dev/null
 
 echo 
 echo 'Starting up...'

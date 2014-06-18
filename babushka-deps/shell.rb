@@ -31,7 +31,7 @@ dep 'oh-my-zsh' do
   requires 'zsh shell'
   @home = File.expand_path OH_MY_ZSH_HOME
   met? { File.exist? @home }
-  meet { shell `curl -L http://install.ohmyz.sh | sh` }
+  meet { shell `curl -sL http://install.ohmyz.sh | sh` }
 end
 
 dep 'oh-my-zsh custom.symlink', :custom_file, :source_dir do
