@@ -95,6 +95,5 @@ STU_HOME="`cd ~/.start-me-up; pwd`"
 alias stu="cd $STU_HOME"
 function start-me-update(){
 	echo "Updating start-me-up..."
-	cd $STU_HOME; git pull origin master; \
-	babushka start-me-up home="$STU_HOME"
+	cd $STU_HOME; sh bootstrap.sh 
 }
