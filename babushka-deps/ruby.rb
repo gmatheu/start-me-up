@@ -14,17 +14,18 @@ dep 'rvm' do
     shell 'bash -c "source ~/.rvm/scripts/rvm; rvm notes"'
   }
 end
-dep 'rvm ruby' do
+dep 'rvm ruby', :version do
+  version.default! '2.1.2'
   rvm_command = ->(cmd) {
     "bash -c 'source ~/.rvm/scripts/rvm; rvm #{cmd}'"
   }
   requires 'rvm'
   met? {
-    shell(rvm_command.call('current')) =~ /2.1.1/
+    shell(rvm_command.call('current')) =~ /"#{version}"/
   }
   meet {
-    shell rvm_command.call 'install 2.1.1'
-    shell rvm_command.call 'use --default 2.1.1'
+    shell rvm_command.call "install #{version}"
+    shell rvm_command.call "use --default #{version}"
   }
 end
 
