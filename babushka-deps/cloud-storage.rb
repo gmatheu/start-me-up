@@ -15,24 +15,16 @@ dep 'grive-tools.managed' do
 end
 
 dep 'copy' do
-  requires 'copy.bin', 'desktop-application'.with(
+  requires 'user-application'.with(
+    app_name: 'copy',
+    url: 'https://copy.com/install/linux/Copy.tgz',
+    exec: 'copy/x86_64/CopyAgent ',
+    temp_file: 'Copy.tgz'
+  ),
+  'desktop-application'.with(
     app_name: 'Copy',
     comment: 'Sync your files across computers and to the web',
     categories: 'Network;FileTransfer;',
     generic_name: 'File Synchronizer'
   )
 end
-
-dep 'copy.bin' do
-  @download_url = 'https://copy.com/install/linux/Copy.tgz'
-  @temp_file = '/tmp/Copy.tgz'
-
-  met? { in_path? 'copy' }
-  meet do
-    shell "curl #{@download_url} -o #{@temp_file}" unless @temp_file.p.exist?
-    sudo "tar -xf #{@temp_file} -C /opt"
-    sudo 'ln -s /opt/copy/x86_64/CopyAgent /usr/local/bin/copy'
-  end
-end
-
-
