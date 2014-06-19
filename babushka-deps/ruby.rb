@@ -34,7 +34,7 @@ dep 'rvm load' do
   profile = File.expand_path '~/.profile'
   sentence = '[ -s ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm'
   met? {
-    File.open(profile).lines.any? do |line|
+    File.open(profile).each_line.any? do |line|
       line.include? sentence
     end
   }
