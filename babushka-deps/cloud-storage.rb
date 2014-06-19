@@ -18,7 +18,7 @@ dep 'copy' do
   requires 'user-application'.with(
     app_name: 'copy',
     url: 'https://copy.com/install/linux/Copy.tgz',
-    exec: 'copy/x86_64/CopyAgent ',
+    exec: 'copy/x86_64/CopyAgent',
     temp_file: 'Copy.tgz'
   ),
   'desktop-application'.with(

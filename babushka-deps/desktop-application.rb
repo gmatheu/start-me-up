@@ -1,11 +1,12 @@
 dep 'desktop-application',
   :version, :type, :app_name, :exec, :comment,
-  :categories, :generic_name do
+  :categories, :generic_name, :icon do
   version.default! '1.0'
   type.default! 'Application'
   generic_name.default! ''
   @app_binary = app_name.to_s.downcase
   exec.default! which(@app_binary)
+  icon.default! ''
 
   @desktop_file_content = %Q|
 [Desktop Entry]
@@ -14,6 +15,7 @@ Encoding=UTF-8
 Type=#{type}
 Name=#{app_name}
 Exec=#{exec}
+Icon=#{icon}
 Comment=#{comment}
 Categories=#{categories}
 Terminal=false
