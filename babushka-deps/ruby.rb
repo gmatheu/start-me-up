@@ -21,7 +21,7 @@ dep 'rvm ruby', :version do
   }
   requires 'rvm'
   met? {
-    shell(rvm_command.call('current')) =~ /"#{version}"/
+    shell(rvm_command.call('current')) =~ /2.1.2/
   }
   meet {
     shell rvm_command.call "install #{version}"
