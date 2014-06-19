@@ -15,6 +15,7 @@ dep 'start-me-up', :home do
   end
   requires 'ruby', 'java', 'git'
   requires 'cloud-storage', 'heroku'
+  requires 'vagrant'
   # requires 'docker', 'virtualbox'
   requires 'atom', 'sublime', 'vim'
   requires 'ant-downloader'
