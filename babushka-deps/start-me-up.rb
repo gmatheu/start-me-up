@@ -13,11 +13,11 @@ dep 'start-me-up', :home do
   ['shell', 'tmux'].each do |d|
     requires d.with(home: home)
   end
-  requires 'ruby', 'java', 'git'
+  requires 'ruby', 'java', 'git', 'nodejs'
   requires 'cloud-storage', 'heroku'
-  requires 'firefox.managed'
+  requires 'firefox'
   requires 'vagrant'
   requires 'atom', 'sublime', 'vim'
   requires 'ant-downloader'
-  # requires 'docker', 'virtualbox', 'google-chrome.managed', skype
+  # requires 'docker', 'virtualbox', 'google-chrome', 'skype'
 end
