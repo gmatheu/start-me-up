@@ -15,9 +15,9 @@ dep 'start-me-up', :home do
   end
   requires 'ruby', 'java', 'git'
   requires 'cloud-storage', 'heroku'
-  requires 'firefox.managed' #, 'google-chrome.managed'
+  requires 'firefox.managed'
   requires 'vagrant'
-  # requires 'docker', 'virtualbox'
   requires 'atom', 'sublime', 'vim'
   requires 'ant-downloader'
+  # requires 'docker', 'virtualbox', 'google-chrome.managed', skype
 end
