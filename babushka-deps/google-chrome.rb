@@ -1,3 +1,7 @@
+dep 'google-chrome' do
+  requires 'google-chrome.managed'
+end
+
 dep 'google-chrome.managed' do
   key = 'https://dl-ssl.google.com/linux/linux_signing_key.pub'
   url = 'http://dl.google.com/linux/chrome/deb/'
