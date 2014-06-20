@@ -18,6 +18,6 @@ dep 'start-me-up', :home do
   requires 'firefox'
   requires 'vagrant'
   requires 'atom', 'sublime', 'vim'
-  requires 'ant-downloader'
+  requires 'ant-downloader', 'caffeine'
   # requires 'docker', 'virtualbox', 'google-chrome', 'skype'
 end
