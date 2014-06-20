@@ -1,6 +1,6 @@
 PACKAGES = %Q|
 subversion aptitude tig curl autojump geany pidgin
-tree htop ack-grep xclip vlc meld
+tree htop ack-grep xclip vlc meld pass
 |.split.each { |p| dep "#{p}.lib" }
 
 BINARIES = %Q|
