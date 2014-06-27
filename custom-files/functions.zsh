@@ -98,6 +98,10 @@ function start-me-update(){
 	cd $STU_HOME; sh bootstrap.sh 
 }
 
+#Vim
+function update-vim-plugins(){
+  vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginInstall +qall
+}
 
 #Java
 alias use-java-6='export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64'
