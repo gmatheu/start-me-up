@@ -58,6 +58,11 @@ install_non_babushkable() {
   sudo aptitude -y install "$packages"
 }
 
+post_install() { 
+  source ~/.zshrc
+  update-vim-plugins
+}
+
 # Run!
 install_prerequesites
 get_repo
@@ -70,3 +75,5 @@ install_non_babushkable 'docker' 'lxc-docker'
 install_non_babushkable 'skype' 'skype'
 install_non_babushkable 'google-chrome' 'google-chrome-stable'
 install_non_babushkable 'virtualbox' 'virtualbox'
+post_install
+
