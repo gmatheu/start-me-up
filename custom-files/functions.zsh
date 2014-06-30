@@ -48,7 +48,7 @@ alias save='echo "$@" >> ~/.saved'
 # Tmux
 alias txc='tmux show-buffer | xc' #Put Tmux buffer in the clipboard
 
-#Sublime plugin fix 
+#Sublime plugin fix
 if [[ $('uname') == 'Linux' ]]; then
         if [ -f '/usr/bin/subl' ]; then
                 st_run() { nohup /usr/bin/subl $@ > /dev/null & }
@@ -95,13 +95,17 @@ STU_HOME="`cd ~/.start-me-up; pwd`"
 alias stu="cd $STU_HOME"
 function start-me-update(){
 	echo "Updating start-me-up..."
-	cd $STU_HOME; sh bootstrap.sh 
+	cd $STU_HOME; sh bootstrap.sh
 }
 
 #Vim
-function update-vim-plugins(){
+function install-vim-plugins(){
   vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginInstall +qall
 }
+function update-vim-plugins(){
+  vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginUpdate +qall
+}
+
 
 #Java
 alias use-java-6='export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64'
