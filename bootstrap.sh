@@ -37,10 +37,12 @@ get_babushka() {
 }
 
 get_settings() {
+m export FULL_NAME=`git config --global user.name` && \
   [ -z "${FULL_NAME}" ] && \
-    echo -n 'Full Name: ' && read FULL_NAME
+    echo -n 'Full Name: ' && read FULL_NAME && export FULL_NAME
+  export EMAIL=`git config --global user.email` && \
   [ -z "${EMAIL}" ] && \
-    echo -n 'E-mail: ' && read EMAIL
+    echo -n 'E-mail: ' && read EMAIL && export EMAIL
 }
 
 run_babushka() {
