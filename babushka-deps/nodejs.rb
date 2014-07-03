@@ -9,7 +9,13 @@ dep 'nodejs.managed' do
   provides 'node', 'npm'
 end
 
-dep 'json.npm' do
-  met? { which 'json'}
-  meet { sudo 'npm install -g json' }
+dep 'json.npm'
+
+meta :npm do
+    template {
+      @name = name.split('.').first
+      requires 'nodejs.managed'
+      met? { which "#{@name}" }
+      meet { sudo "npm install -g #{@name}" }
+    }
 end
