@@ -17,7 +17,7 @@ dep 'start-me-up', :home do
   requires 'cloud-storage', 'heroku'
   requires 'firefox'
   requires 'vagrant'
-  requires 'atom', 'sublime', 'vim', 'lighttable'
+  requires 'atom', 'sublime', 'vim', 'lighttable', 'latex'
   requires 'ant-downloader', 'caffeine', 'shutter'
   # requires 'docker', 'virtualbox', 'google-chrome', 'skype'
 end
