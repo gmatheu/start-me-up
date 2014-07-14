@@ -2,6 +2,7 @@ LATEX_PACKAGES=%Q|
 texlive-latex-base
 texlive-latex-extra
 texlive-fonts-recommended
+texlive-fonts-extra
 texlive-latex-recommended
 |.split
 
