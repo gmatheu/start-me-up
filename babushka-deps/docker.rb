@@ -1,5 +1,5 @@
 dep 'docker' do
-  requires 'docker.managed'
+  requires 'docker.managed', 'fig.pip'
 end
 
 dep 'docker.managed' do
@@ -16,3 +16,5 @@ dep 'docker.managed' do
   installs 'lxc-docker'
   provides 'docker >= 1.0'
 end
+
+dep 'fig.pip'

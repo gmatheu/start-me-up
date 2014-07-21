@@ -67,6 +67,12 @@ then
   alias docker='sudo docker'
 fi
 
+if (which fig > /dev/null)
+then
+  alias fig='sudo fig'
+fi
+
+
 if (which memcached > /dev/null)
 then
   alias clear_memcached='echo "flush_all" | nc localhost 11211'
