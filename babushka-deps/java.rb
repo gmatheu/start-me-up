@@ -3,12 +3,11 @@ openjdk-7-source
 openjdk-7-doc
 openjdk-7-jdk
 maven
-gradle
 |.split.map{ |p| "#{p}.lib" }
 
 dep 'java' do
   requires JAVA_PACKAGES
-  requires 'oracle java.managed'
+  requires 'oracle java.managed gradle.managed'
 end
 
 dep 'oracle java.managed' do
@@ -19,3 +18,9 @@ dep 'oracle java.managed' do
 end
 
 JAVA_PACKAGES.each{ |p| dep p }
+
+dep 'gradle.managed' do
+  requires 'ppa'.with('ppa:cwchien/gradle')
+  installs 'gradle'
+  provides 'gradle'
+end
