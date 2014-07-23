@@ -121,7 +121,7 @@ alias use-java-8-oracle='export JAVA_HOME=/usr/lib/jvm/java-8-oracle'
 
 
 #Explain Shell
-function explain(){ 
+function explain-command(){ 
   if [[ $# == 0 ]]; then
         cat <<EOH
   Opens http://explainshell.com to explain given command.
@@ -132,9 +132,9 @@ EOH
     return 0
   fi
 
-  raw=$@ 
-  cmd=${raw/ /+} 
-  url="http://explainshell.com/explain?cmd=$cmd" 
+  local raw=$@ 
+  local cmd=${raw/ /+} 
+  local url="http://explainshell.com/explain?cmd=$cmd" 
 
   if which xdg-open &> /dev/null; then
     xdg-open $url 
@@ -144,4 +144,9 @@ EOH
     echo "xdg-open nor open found. Can not open browser!"
   fi
 }
-
+function explain-last-command(){
+  local last="`fc -nl -1`"
+  explain-command $last
+}
+alias explain=explain-command
+alias explain-last=explain-last-command
