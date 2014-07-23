@@ -9,8 +9,8 @@ dep 'git.managed' do
 end
 
 dep 'git settings', :commiter, :email do
-  commiter.default!(ENV['FULL_NAME'] || 'My Name')
-  email.default!(ENV['EMAIL'] || 'me@email.com')
+  commiter.default!(ENV['FULL_NAME']) if ENV['FULL_NAME']
+  email.default!(ENV['EMAIL']) if ENV['EMAIL']
   requires 'git config'.with('user.name', commiter)
   requires 'git config'.with('user.email', email)
   requires 'git config'.with('core.pager', '')
@@ -26,7 +26,7 @@ dep 'git config', :key, :value do
 end
 
 dep 'ssh key', :email do
-  email.default!(ENV['EMAIL'] || 'me@email.com')
+  email.default!(ENV['EMAIL']) if ENV['EMAIL']
   @file = File.expand_path '~/.ssh/id_rsa'
   met? { File.exist? @file }
   meet { shell "ssh-keygen -t rsa -f #{@file} -C #{email}" }
