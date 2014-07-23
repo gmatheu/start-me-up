@@ -2,6 +2,7 @@ OH_MY_ZSH_HOME = '~/.oh-my-zsh'
 OH_MY_ZSH_CUSTOM = "#{OH_MY_ZSH_HOME}/custom"
 
 dep 'shell', :home do
+  home.default OH_MY_ZSH_HOME
   requires [
     'zsh.bin',
     'zsh shell',
@@ -12,14 +13,17 @@ dep 'shell', :home do
     ['functions', 'extra-init'].map { |f|
       'oh-my-zsh custom.symlink'.with(source_dir: home / 'custom-files', custom_file: f)
     },
-    'zsh-syntax-highlighting'
-  ].flatten
+    'oh-my-zsh custom plugin'.with(target: 'zsh-syntax-highlighting',
+                                   repo: 'zsh-users/zsh-syntax-highlighting'),
+    'oh-my-zsh custom plugin'.with(target: 'zsh-explain-shell',
+                                   repo: 'gmatheu/zsh-explain-shell')
+      ].flatten
 end
 
-dep 'zsh-syntax-highlighting' do
+dep 'oh-my-zsh custom plugin', :target, :repo do
   requires 'oh-my-zsh'
-  @repo = 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
-  @path = File.expand_path "#{OH_MY_ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
+  @repo = "https://github.com/#{repo}.git"
+  @path = File.expand_path "#{OH_MY_ZSH_CUSTOM}/plugins/#{target}"
   met? {
     repository = Babushka::GitRepo.repo_for(@path)
     repository && repository.exists?
