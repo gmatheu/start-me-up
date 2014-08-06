@@ -17,7 +17,8 @@ dep 'shell', :home do
                                    repo: 'zsh-users/zsh-syntax-highlighting'),
     'oh-my-zsh custom plugin'.with(target: 'zsh-explain-shell',
                                    repo: 'gmatheu/zsh-explain-shell')
-      ].flatten
+      ].flatten,
+    'antigen'
 end
 
 dep 'oh-my-zsh custom plugin', :target, :repo do
@@ -48,6 +49,18 @@ dep 'zsh shell' do
   requires 'zsh.bin'
   met? { shell("sudo su - '#{current_username}' -c 'echo $SHELL'") == which('zsh') }
   meet { sudo "chsh -s '#{which('zsh')}' #{current_username}" }
+end
+
+dep 'antigen', :target do
+  target.default "~/.start-me-up/tools"
+  requires 'zsh.bin'
+  @repo = "https://github.com/zsh-users/antigen.git"
+  @path = File.expand_path "#{target}/antigen"
+  met? {
+    repository = Babushka::GitRepo.repo_for(@path)
+    repository && repository.exists?
+  }
+  meet { git @repo, :to => @path }
 end
 
 dep 'zsh.bin'
