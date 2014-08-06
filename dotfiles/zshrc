@@ -3,7 +3,7 @@ ZSH_THEME="avit"
 DISABLE_CORRECTION="true"
 plugins=(docker gradle lein bundler git git-extras rake autojump rvm vagrant \ 
   rails history debian zsh-syntax-highlighting history-substring-search \
-  zsh-autosuggestions zsh-explain-shell)
+  zsh-autosuggestions zsh-explain-shell command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
