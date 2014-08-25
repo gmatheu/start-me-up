@@ -112,41 +112,9 @@ function update-vim-plugins(){
   vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginUpdate +qall
 }
 
-
 #Java
 alias use-java-6='export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64'
 alias use-java-7='export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64'
 alias use-java-7-oracle='export JAVA_HOME=/usr/lib/jvm/java-7-oracle'
 alias use-java-8-oracle='export JAVA_HOME=/usr/lib/jvm/java-8-oracle'
 
-
-#Explain Shell
-function explain-command(){ 
-  if [[ $# == 0 ]]; then
-        cat <<EOH
-  Opens http://explainshell.com to explain given command.
-
-  usage: explain <cmd> <args>
-  example: explain ps faux
-EOH
-    return 0
-  fi
-
-  local raw=$@ 
-  local cmd=${raw/ /+} 
-  local url="http://explainshell.com/explain?cmd=$cmd" 
-
-  if which xdg-open &> /dev/null; then
-    xdg-open $url 
-  elif which open &> /dev/null; then
-    open $url
-  else
-    echo "xdg-open nor open found. Can not open browser!"
-  fi
-}
-function explain-last-command(){
-  local last="`fc -nl -1`"
-  explain-command $last
-}
-alias explain=explain-command
-alias explain-last=explain-last-command
