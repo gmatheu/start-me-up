@@ -22,7 +22,7 @@ Object.send :include, BulkDepsHelpers
 
 BASE_PACKAGES = %Q|
 subversion aptitude tig curl autojump geany pidgin
-tree htop ack-grep xclip vlc meld pass
+tree htop ack-grep xclip vlc meld pass libxml2-utils
 |.split
 lib_for BASE_PACKAGES
 
