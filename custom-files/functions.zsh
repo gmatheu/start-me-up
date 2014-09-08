@@ -62,20 +62,6 @@ alias stt='st .'
 
 unalias ag
 
-if (which docker > /dev/null)
-then
-  alias docker='sudo docker'
-  alias docker-ip='sudo docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1'
-  alias docker-pid='sudo docker inspect --format "{{ .State.Pid }}" $1'
-  alias docker-enter='sudo nsenter --target `docker-pid $1` -muinpw /bin/bash'
-fi
-
-if (which fig > /dev/null)
-then
-  alias fig='sudo fig'
-fi
-
-
 if (which memcached > /dev/null)
 then
   alias clear_memcached='echo "flush_all" | nc localhost 11211'
@@ -84,21 +70,6 @@ then
 fi
 
 alias o="xdg-open"
-
-function notify() {
-  local result=$?
-  if which notify-send &> /dev/null; then
-    local name=${1}
-    if test $result -eq 0; then
-      local notification="Succeeded"
-      notify-send -t 1000 -i dialog-ok "${name} ${notification}"
-    else
-      local notification="Failed"
-      notify-send -t 3000 -i dialog-error "${name} ${notification}"
-    fi
-  fi
-}
-alias n=notify
 
 STU_HOME="`cd ~/.start-me-up; pwd`"
 alias stu="cd $STU_HOME"

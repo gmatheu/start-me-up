@@ -7,9 +7,13 @@ plugins=(docker gradle lein bundler git git-extras rake autojump rvm vagrant \
 
 source $ZSH/oh-my-zsh.sh
 
-# antigen
+## antigen
 source $STU_HOME/tools/antigen/antigen.zsh
-antigen bundle gmatheu/zsh-explain-shell
+
+antigen bundle gmatheu/shell-plugins explain-shell
+antigen bundle gmatheu/shell-plugins dirrc
+antigen bundle gmatheu/shell-plugins docker
+antigen bundle gmatheu/shell-plugins notify
 antigen apply
 
 # Customize to your needs...
