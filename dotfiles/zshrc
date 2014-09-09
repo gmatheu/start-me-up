@@ -10,10 +10,18 @@ source $ZSH/oh-my-zsh.sh
 ## antigen
 source $STU_HOME/tools/antigen/antigen.zsh
 
+# Vi-mode
+antigen bundle vi-mode # Only for prompt
+antigen bundle sharat87/zsh-vim-mode
+bindkey "^R" history-incremental-search-backward
+bindkey "^F" forward-char # Make them work in vicmd
+bindkey "^D" delete-char-or-list
+
 antigen bundle gmatheu/shell-plugins explain-shell
 antigen bundle gmatheu/shell-plugins dirrc
 antigen bundle gmatheu/shell-plugins docker
 antigen bundle gmatheu/shell-plugins notify
+antigen bundle gmatheu/shell-plugins git
 antigen apply
 
 # Customize to your needs...
