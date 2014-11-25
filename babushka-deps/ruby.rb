@@ -1,3 +1,6 @@
+RVM_DEFAULT_VERSION='1.26.3'
+RVM_RUBY_VERSION='2.1.5'
+
 dep 'ruby' do
   requires 'rvm load', 'ruby.bin', 'rvm ruby', 'default gems'
 end
@@ -6,22 +9,28 @@ dep 'ruby.bin' do
   provides 'ruby >= 1.9.3p484'
 end
 
-dep 'rvm' do
-  met? { which('rvm') }
+rvm_command = ->(cmd) {
+  "bash -c 'source ~/.rvm/scripts/rvm; rvm #{cmd}'"
+}
+
+dep 'rvm', :version do
+  version.default! RVM_DEFAULT_VERSION
+  met? {
+    shell(rvm_command.call('version')) =~ /#{version}/
+  }
 
   meet {
-    shell 'bash -c "`curl -sL https://get.rvm.io`"'
+    shell 'gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3'
+    shell 'curl -sSL https://get.rvm.io | bash -s stable'
     shell 'bash -c "source ~/.rvm/scripts/rvm; rvm notes"'
   }
 end
+
 dep 'rvm ruby', :version do
-  version.default! '2.1.2'
-  rvm_command = ->(cmd) {
-    "bash -c 'source ~/.rvm/scripts/rvm; rvm #{cmd}'"
-  }
+  version.default! RVM_RUBY_VERSION
   requires 'rvm'
   met? {
-    shell(rvm_command.call('current')) =~ /2.1.2/
+    shell(rvm_command.call('current')) =~ /#{version}/
   }
   meet {
     shell rvm_command.call "install #{version}"
