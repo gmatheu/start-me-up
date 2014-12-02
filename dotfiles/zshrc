@@ -22,6 +22,7 @@ antigen bundle gmatheu/shell-plugins dirrc
 antigen bundle gmatheu/shell-plugins docker
 antigen bundle gmatheu/shell-plugins notify
 antigen bundle gmatheu/shell-plugins git
+antigen bundle gmatheu/shell-plugins vim
 antigen apply
 
 # Customize to your needs...

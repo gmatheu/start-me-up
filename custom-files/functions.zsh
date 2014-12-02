@@ -72,14 +72,6 @@ function start-me-update(){
 	cd $STU_HOME; sh bootstrap.sh
 }
 
-#Vim
-function install-vim-plugins(){
-  vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginInstall +qall
-}
-function update-vim-plugins(){
-  vim "+mkspell ~/.vim/spell/custom.en.utf-8.add" +PluginUpdate +qall
-}
-
 #Java
 alias use-java-6='export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64'
 alias use-java-7='export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64'
