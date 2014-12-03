@@ -14,14 +14,13 @@ SCRIPT
 headless = ENV.fetch('HEADLESS', 'true') == 'true'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'trusty-server-cloudimg-amd64-vagrant-disk1'
-  config.vm.box_url = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
+  config.vm.box = 'ubuntu/trusty64'
   config.vm.hostname = 'start-me-up'
   config.vm.synced_folder '.', '/home/vagrant/.start-me-up'
   config.vm.provider 'virtualbox' do |vb|
-  vb.gui = !headless
-  vb.memory = headless ? 512 : 1024
-  vb.cpus = 1
+    vb.gui = !headless
+    vb.memory = headless ? 512 : 1024
+    vb.cpus = 1
   end
   config.vm.provision 'shell', inline: $desktop_script unless headless
   config.vm.provision 'shell', inline: $script
