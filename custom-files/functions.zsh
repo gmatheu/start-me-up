@@ -71,6 +71,17 @@ function start-me-update(){
 	echo "Updating start-me-up..."
 	cd $STU_HOME; sh bootstrap.sh
 }
+function stu-ssh(){
+  VAGRANT_CWD=$STU_HOME vagrant up 
+  VAGRANT_CWD=$STU_HOME vagrant ssh
+}
+function stu-gui(){
+  VAGRANT_CWD=$STU_HOME HEADLESS=false vagrant up
+}
+function stu-halt(){
+  VAGRANT_CWD=$STU_HOME vagrant halt
+}
+
 
 #Java
 alias use-java-6='export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64'
