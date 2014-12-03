@@ -37,7 +37,7 @@ get_babushka() {
 }
 
 get_settings() {
-m export FULL_NAME=`git config --global user.name` && \
+  export FULL_NAME=`git config --global user.name` && \
   [ -z "${FULL_NAME}" ] && \
     echo -n 'Full Name: ' && read FULL_NAME && export FULL_NAME
   export EMAIL=`git config --global user.email` && \
@@ -59,8 +59,8 @@ install_non_babushkable() {
 }
 
 post_install() { 
-  source ~/.zshrc
   update-vim-plugins
+  echo "Reload zsh configuration! Run zshr"  
 }
 
 # Run!
