@@ -1,8 +1,8 @@
 dep 'virtualbox' do
-  requires 'virtualbox.managed'
+  requires 'virtualbox-4.3.managed'
 end
 
-dep 'virtualbox.managed' do
+dep 'virtualbox-4.3.managed' do
   key = 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc'
   url = 'http://download.virtualbox.org/virtualbox/debian'
   sig = '7B0F AB3A 13B9 0743 5925  D9C9 5442 2A4B 98AB 5139'
