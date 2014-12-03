@@ -17,13 +17,15 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^F" forward-char # Make them work in vicmd
 bindkey "^D" delete-char-or-list
 
-antigen bundle gmatheu/shell-plugins explain-shell
-antigen bundle gmatheu/shell-plugins dirrc
-antigen bundle gmatheu/shell-plugins docker
-antigen bundle gmatheu/shell-plugins notify
-antigen bundle gmatheu/shell-plugins git
-antigen bundle gmatheu/shell-plugins vim
-antigen apply
+if (type antigen | grep -e 'function'); then
+  antigen bundle gmatheu/shell-plugins explain-shell
+  antigen bundle gmatheu/shell-plugins dirrc
+  antigen bundle gmatheu/shell-plugins docker
+  antigen bundle gmatheu/shell-plugins notify
+  antigen bundle gmatheu/shell-plugins git
+  antigen bundle gmatheu/shell-plugins vim
+  antigen apply
+fi
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
