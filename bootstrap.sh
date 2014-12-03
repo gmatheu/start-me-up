@@ -59,8 +59,16 @@ install_non_babushkable() {
 }
 
 post_install() { 
-  update-vim-plugins
-  echo "Reload zsh configuration! Run zshr"  
+  if (type update-vim-plugins | grep -e 'function'); then
+    update-vim-plugins
+  else
+    echo "Run update-vim-plugins to update vim plugins"
+  fi
+  if (type zshr | grep -e 'function'); then
+    zshr
+  else
+    echo "Reload zsh configuration! Run zshr"  
+  fi
 }
 
 # Run!
