@@ -1,10 +1,20 @@
 #! /bin/sh
 
+NC='\033[0m'
+error() {
+  color='\033[0;31m'
+  echo "${color}$1${NC} "
+} 
+info() {
+  color='\033[0;32m'
+  echo "${color}$1${NC} "
+} 
+
 LOG_FILE='last_run.log'
 echo "Starting you up: `date`" > $LOG_FILE
 
-if [ ! -n "$STU" ]; then
-  export STU=~/.start-me-up
+if [ ! -n "$STU_HOME" ]; then
+  export STU_HOME=`cd ~/.start-me-up; pwd`
 fi
 
 install_prerequesites() {
@@ -14,17 +24,17 @@ install_prerequesites() {
 }
 
 get_repo() {
-  if [ ! -d $STU ];
+  if [ ! -d $STU_HOME ];
   then
     echo 'Cloning repository'
     which git >/dev/null 2>&1 && \
-    git clone https://github.com/gmatheu/start-me-up.git $STU || {
+    git clone https://github.com/gmatheu/start-me-up.git $STU_HOME || {
       echo 'Could not clone repository'
       exit 1
     }
   else
     echo 'Updating Repository'
-    cd $STU && \
+    cd $STU_HOME && \
       git pull origin master
   fi
 }
@@ -48,7 +58,7 @@ get_settings() {
 run_babushka() {
   echo
   echo 'Starting up...'
-  cd $STU; babushka start-me-up home="$STU"
+  cd $STU_HOME; babushka start-me-up home="$STU_HOME"
 }
 
 install_non_babushkable() {
@@ -62,23 +72,25 @@ post_install() {
   if (type update-vim-plugins | grep -e 'function'); then
     update-vim-plugins
   else
-    echo "Run update-vim-plugins to update vim plugins"
+    error "Run update-vim-plugins to update vim plugins"
   fi
   if (type zshr | grep -e 'function'); then
     zshr
   else
-    echo "Reload zsh configuration! Run zshr"  
+    error "Reload zsh configuration! Run zshr"  
   fi
 }
 
 # Run!
+info 'Installing system packages'
 install_prerequesites
 get_repo
+info 'Installing babushka packages'
 get_babushka
 get_settings
 run_babushka
 # Following packages are not working properly, but they can be installed using apt
-echo 'Installing remaining packages...'
+info 'Installing remaining packages...'
 install_non_babushkable 'docker' 'lxc-docker'
 install_non_babushkable 'skype' 'skype'
 install_non_babushkable 'google-chrome' 'google-chrome-stable'
