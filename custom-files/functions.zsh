@@ -71,15 +71,18 @@ function start-me-update(){
 	echo "Updating start-me-up..."
 	cd $STU_HOME; sh bootstrap.sh
 }
+function stu-vagrant(){
+  VAGRANT_CWD=$STU_HOME vagrant $@
+}
 function stu-ssh(){
-  VAGRANT_CWD=$STU_HOME vagrant up 
-  VAGRANT_CWD=$STU_HOME vagrant ssh
+  stu-vagrant up 
+  stu-vagrant ssh
 }
 function stu-gui(){
   VAGRANT_CWD=$STU_HOME HEADLESS=false vagrant up
 }
 function stu-halt(){
-  VAGRANT_CWD=$STU_HOME vagrant halt
+  stu-vagrant halt
 }
 
 
