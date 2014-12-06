@@ -44,6 +44,7 @@ get_babushka() {
   echo 'Babushka already installed' || {
    sudo sh -c "`curl -s https://babushka.me/up/master`" </dev/null
   }
+  sudo babushka babushka 
 }
 
 get_settings() {
@@ -82,9 +83,10 @@ post_install() {
 }
 
 # Run!
+info "Getting latest changes"
+get_repo
 info 'Installing system packages'
 install_prerequesites
-get_repo
 info 'Installing babushka packages'
 get_babushka
 get_settings
