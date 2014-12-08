@@ -24,6 +24,11 @@ function grep-rails-routes()
  	rake routes | grep $1
  }
 
+function grep-recursive(){
+  grep -R -e $1 .
+}
+alias grr="grep-recursive"
+
 alias ga="grep-aliases"
 alias rrg="grep-rails-routes"
 alias rt="rake -T"
