@@ -14,7 +14,7 @@ LOG_FILE='last_run.log'
 echo "Starting you up: `date`" > $LOG_FILE
 
 if [ ! -n "$STU_HOME" ]; then
-  export STU_HOME=`cd ~/.start-me-up; pwd`
+  export STU_HOME="$HOME/.start-me-up"
 fi
 
 install_prerequesites() {
