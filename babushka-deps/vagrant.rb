@@ -1,8 +1,11 @@
 dep 'vagrant' do
+  version='1.7.2'
+  file = "vagrant_#{version}_x86_64.deb"
   requires 'deb package'.with(
-    url: 'https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb',
-    temp_file: 'vagrant_1.7.2_x86_64.deb',
-    exec: 'vagrant'
+    url: "https://dl.bintray.com/mitchellh/vagrant/#{file}",
+    temp_file: file,
+    exec: 'vagrant',
+    version: version
   )
 end
 
