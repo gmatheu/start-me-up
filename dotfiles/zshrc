@@ -18,7 +18,7 @@ bindkey "^F" forward-char # Make them work in vicmd
 bindkey "^D" delete-char-or-list
 
 if (type antigen | grep -e 'function' > /dev/null); then
-  antigen bundle sharat87/autoenv
+  # antigen bundle sharat87/autoenv
 
   antigen bundle gmatheu/shell-plugins explain-shell
   antigen bundle gmatheu/shell-plugins dirrc
