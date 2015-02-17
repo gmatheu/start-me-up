@@ -4,8 +4,8 @@ end
 
 dep 'skype.managed' do
   requires 'canonical partner repository'
-  installs 'virtualbox'
-  provides 'vboxmanage >= 4.3'
+  installs 'skype'
+  provides 'skype >= 4.3'
 end
 
 dep 'canonical partner repository' do
