@@ -3,7 +3,7 @@ ZSH_THEME="avit"
 DISABLE_CORRECTION="true"
 plugins=(docker gradle lein bundler git git-extras rake autojump rvm vagrant \ 
   rails history debian zsh-syntax-highlighting history-substring-search \
-  zsh-autosuggestions zsh-explain-shell command-not-found)
+  zsh-autosuggestions zsh-explain-shell command-not-found svn-fast-info) 
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,6 +25,7 @@ if (type antigen | grep -e 'function' > /dev/null); then
   antigen bundle gmatheu/shell-plugins docker
   antigen bundle gmatheu/shell-plugins notify
   antigen bundle gmatheu/shell-plugins git
+  antigen bundle gmatheu/shell-plugins git-svn 
   antigen bundle gmatheu/shell-plugins vim
   antigen apply
 fi
