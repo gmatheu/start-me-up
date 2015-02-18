@@ -10,16 +10,6 @@ source $STU_HOME/secrets.sh
 echo "Adding ppa repositories"
 sudo add-apt-repository -y ppa:git-core/ppa
 
-$PACKAGES="subversion zsh tmux aptitude git guake curl openjdk-7-source openjdk-7-doc openjdk-7-jdk maven autojump geany pidgin tree htop ack-grep xclip vlc meld"
-sudo apt-get update > /dev/null
-sudo apt-get -y install $PACKAGES
-
-source $STU_HOME/java.zsh
-source $STU_HOME/oh-my-zsh.zsh
-
-# Tmux conf
-ln -s $STU_HOME/tmux.conf ~/.tmux.conf
-
 # Git
 git config --global user.name $NAME 
 git config --global user.email $EMAIL
@@ -30,9 +20,6 @@ git config --global diff.tool meld
 
 echo "Generating SSH keys"
 ssh-keygen -t rsa -C $EMAIL 
-
-source $STU_HOME/virtualbox.sh
-source $STU_HOME/vagrant.sh
 
 # Sublime
 source $STU_HOME/sublime.sh
@@ -76,33 +63,6 @@ echo "Ubuntu"
 echo "Nautilus Nav bar"
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 
-echo "Solarized"
-ln -s $STU_HOME/modules/dircolors.ansi-dark ~/.dircolors &&
-eval `dircolors ~/.dircolors` &&
-sh modules/gnome-terminal-colors-solarized/set_dark.sh &&
-sh modules/guake-colors-solarized/set_dark.sh
-
-# Natural Scrolling
-sudo add-apt-repository -y ppa:zedtux/naturalscrolling &&                                                                                                        !555
-sudo apt-get update &&
-sudo apt-get install -y naturalscrolling
-
-# Caffeine
-sudo apt-add-repository ppa:caffeine-developers/ppa
-sudo apt-get update &&
-sudo apt-get install -y caffeine 
-
-source $STU_HOME/eclipse.sh
-
-source $STU_HOME/idea.sh
-
-# Hub
-if ! (which hub > /dev/null); then
-  sudo curl http://hub.github.com/standalone -sLo /bin/hub &&
-  sudo chmod +x /bin/hub &&
-  curl https://raw.github.com/github/hub/master/etc/hub.zsh_completion -o ~/.oh-my-zsh/custom/hub.zsh
-fi
-
 # The Silver Search
 if ! (which ag > /dev/null); then
   sudo apt-get -y install software-properties-common &&
@@ -111,5 +71,3 @@ if ! (which ag > /dev/null); then
   sudo apt-get -y install silversearcher-ag
 fi
 
-source $STU_HOME/netflix.sh
-source $STU_HOME/puppet.sh
