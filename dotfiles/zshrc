@@ -27,6 +27,7 @@ if (type antigen | grep -e 'function' > /dev/null); then
   antigen bundle gmatheu/shell-plugins git
   antigen bundle gmatheu/shell-plugins git-svn 
   antigen bundle gmatheu/shell-plugins vim
+  antigen bundle gmatheu/shell-plugins svn
   antigen apply
 fi
 
