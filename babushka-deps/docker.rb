@@ -1,5 +1,5 @@
 dep 'docker' do
-  requires 'docker.managed', 'fig.pip'
+  requires 'docker.managed', 'docker-compose.pip'
 end
 
 dep 'docker.managed' do
@@ -17,4 +17,4 @@ dep 'docker.managed' do
   provides 'docker >= 1.0'
 end
 
-dep 'fig.pip'
+dep 'docker-compose.pip'
