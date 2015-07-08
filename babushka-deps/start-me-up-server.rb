@@ -20,10 +20,14 @@ end
 
 Object.send :include, BulkDepsHelpers
 
+SERVER_PACKAGES = %Q|
+subversion aptitude tig curl autojump tree htop ack-grep pass libxml2-utils silversearcher-ag|.split
+lib_for SERVER_PACKAGES
+
 dep 'start-me-up-server', :home do
   home.default! '~/.start-me-up'
 
-  requires bin_dep %Q|subversion aptitude tig curl autojump tree htop ack-grep pass libxml2-utils silversearcher-ag|.split
+  requires bin_dep SERVER_PACKAGES
 
   ['shell', 'tmux'].each do |d|
     requires d.with(home: home)
