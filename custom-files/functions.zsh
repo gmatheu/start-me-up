@@ -59,8 +59,6 @@ fi
 
 alias stt='st .'
 
-unalias ag
-
 if (which memcached > /dev/null)
 then
   alias clear_memcached='echo "flush_all" | nc localhost 11211'
