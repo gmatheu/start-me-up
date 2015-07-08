@@ -30,7 +30,7 @@ BASE_BINARIES = %Q|
 |.split.each { |p| dep "#{p}.bin" }
 bin_for BASE_BINARIES
 
-dep 'start-me-up', :home do
+dep 'start-me-up-server', :home do
   home.default! '~/.start-me-up'
 
   requires bin_dep BASE_PACKAGES
