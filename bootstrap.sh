@@ -44,7 +44,7 @@ get_babushka() {
   echo 'Babushka already installed' || {
    sudo sh -c "`curl -s https://babushka.me/up/master`" </dev/null
   }
-  sudo babushka babushka 
+  sudo babushka babushka
 }
 
 get_settings() {
@@ -91,6 +91,6 @@ info 'Installing remaining packages...'
 install_non_babushkable 'docker' 'lxc-docker'
 install_non_babushkable 'skype' 'skype'
 install_non_babushkable 'google-chrome' 'google-chrome-stable'
-install_non_babushkable 'virtualbox' 'virtualbox-4.3'
+install_non_babushkable 'virtualbox' 'virtualbox-5'
 post_install
 
