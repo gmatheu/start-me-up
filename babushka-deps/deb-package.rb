@@ -3,7 +3,8 @@ dep 'deb package', :url, :exec, :temp_file, :version do
   version.default! 'Version'
   met? do
     in_path?(exec) &&
-      shell("dpkg -p #{exec} | grep Version").include?(version)
+      (shell("dpkg -p #{exec} | grep Version").include?(version) ||
+       shell("#{exec} --version").include?(version))
   end
   meet do
     cmd = "curl #{url} -sL -o #{@temp_file}"
