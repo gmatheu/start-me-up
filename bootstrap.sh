@@ -70,11 +70,6 @@ install_non_babushkable() {
 }
 
 post_install() { 
-  if (type update-vim-plugins | grep -e 'function' > /dev/null); then
-    update-vim-plugins
-  else
-    error "Run update-vim-plugins to update vim plugins"
-  fi
   if (type zshr | grep -e 'alias' > /dev/null); then
     zshr
   else
