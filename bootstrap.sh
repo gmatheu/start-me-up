@@ -88,9 +88,9 @@ get_settings
 run_babushka
 # Following packages are not working properly, but they can be installed using apt
 info 'Installing remaining packages...'
-install_non_babushkable 'docker' 'lxc-docker'
+# install_non_babushkable 'docker' 'lxc-docker'
 install_non_babushkable 'skype' 'skype'
 install_non_babushkable 'google-chrome' 'google-chrome-stable'
-install_non_babushkable 'virtualbox' 'virtualbox-5'
+install_non_babushkable 'virtualbox' 'virtualbox-5.0'
 post_install
 
