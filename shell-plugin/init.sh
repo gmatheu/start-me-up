@@ -1,6 +1,7 @@
 #! /bin/bash
 
 function stu-add-bintray-repo() {
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 41C23E8A4A7331E6
   echo "deb https://dl.bintray.com/gmatheu/deb /" | sudo tee /etc/apt/sources.list.d/gmatheu-bintray.list
   sudo apt-get update
 }
