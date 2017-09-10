@@ -1,18 +1,18 @@
 dep 'virtualbox' do
-  requires 'virtualbox-4.3.managed'
+  requires 'virtualbox-5.1.managed'
 end
 
-dep 'virtualbox-4.3.managed' do
-  key = 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc'
+dep 'virtualbox-5.1.managed' do
+  key = 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
   url = 'http://download.virtualbox.org/virtualbox/debian'
-  sig = '7B0F AB3A 13B9 0743 5925  D9C9 5442 2A4B 98AB 5139'
+  sig = 'B9F8 D658 297A F3EF C18D  5CDF A2F6 83C5 2980 AECF'
   requires 'keyed apt source'.with(
     uri: url,
     key_uri: key,
     key_sig: sig,
-    release: 'trusty',
+    release: 'xenial',
     repo: 'contrib'
   )
   installs 'virtualbox'
-  provides 'vboxmanage >= 4.3'
+  provides 'vboxmanage >= 5.1'
 end
