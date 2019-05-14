@@ -6,6 +6,7 @@ dep 'docker.managed' do
   key = 'https://download.docker.com/linux/ubuntu/gpg'
   url = '[arch=amd64] https://download.docker.com/linux/ubuntu'
   sig = '0EBF CD88'
+  log "Installing using instructions from: https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository".colorize('blue')
   release = `lsb_release -cs`.strip
   requires 'keyed apt source'.with(
     uri: url,
