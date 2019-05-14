@@ -4,11 +4,11 @@ NC='\033[0m'
 error() {
   color='\033[0;31m'
   echo "${color}$1${NC} "
-} 
+}
 info() {
   color='\033[0;32m'
   echo "${color}$1${NC} "
-} 
+}
 
 LOG_FILE='last_run.log'
 echo "Starting you up: `date`" > $LOG_FILE
@@ -62,21 +62,6 @@ run_babushka() {
   cd $STU_HOME; babushka start-me-up home="$STU_HOME"
 }
 
-install_non_babushkable() {
-  local dep=$1
-  local packages=$2
-  sudo babushka "$dep" >> $LOG_FILE 2>&1
-  sudo aptitude -y install "$packages"
-}
-
-post_install() { 
-  if (type zshr | grep -e 'alias' > /dev/null); then
-    zshr
-  else
-    error "Reload zsh configuration! Run zshr"  
-  fi
-}
-
 # Run!
 info "Getting latest changes"
 get_repo
@@ -85,12 +70,5 @@ install_prerequesites
 info 'Installing babushka packages'
 get_babushka
 get_settings
-run_babushka
-# Following packages are not working properly, but they can be installed using apt
-info 'Installing remaining packages...'
-# install_non_babushkable 'docker' 'lxc-docker'
-install_non_babushkable 'skype' 'skype'
-install_non_babushkable 'google-chrome' 'google-chrome-stable'
-install_non_babushkable 'virtualbox' 'virtualbox-5.0'
-post_install
+# run_babushka
 
