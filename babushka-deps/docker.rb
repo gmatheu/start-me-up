@@ -3,18 +3,20 @@ dep 'docker' do
 end
 
 dep 'docker.managed' do
-  key = 'https://get.docker.io/gpg'
-  url = 'https://get.docker.io/ubuntu'
-  sig = '36A1D7869245C8950F966E92D8576A8BA88D21E9'
+  key = 'https://download.docker.com/linux/ubuntu/gpg'
+  url = '[arch=amd64] https://download.docker.com/linux/ubuntu'
+  sig = '0EBF CD88'
+  release = `lsb_release -cs`.strip
   requires 'keyed apt source'.with(
     uri: url,
     key_uri: key,
     key_sig: sig,
-    release: 'docker',
-    repo: 'main'
+    repo: 'stable'
   )
-  installs 'lxc-docker'
-  provides 'docker >= 1.0'
+  installs 'docker-ce', 'docker-ce-cli', 'containerd.io'
+  provides 'docker >= 18.09'
 end
 
-dep 'docker-compose.pip'
+dep 'docker-compose.pip' do
+  provides 'docker-compose >= 1.24.0'
+end
